@@ -1,0 +1,22 @@
+Same as V1
+You do NOT need to change any wires.
+Just upload the new code — everything will work.
+
+
+new features like WiFi handling, better stability detection, smoother scrolling, and refined dose monitoring logic
+
+Introduced WiFi capability for network and NTP time synchronization.
+
+Code tries to reconnect in background.
+Same logic but integrated with WiFi sync.
+
+Prevents false detections from vibration/noise.
+Compares initial and final weight to check correctness.
+Cancels dose session if no action taken.
+
+
+Automatically tares when weight stable and near zero.
+Used to detect when the scale is stable.    
+Auto-tare now prints debug messages with measured weight
+
+Generate and scroll long text seamlessly.

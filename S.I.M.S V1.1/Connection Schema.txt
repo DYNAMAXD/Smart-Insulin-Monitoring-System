@@ -1,0 +1,47 @@
+Power and Ground Layout on Breadboard
+ 
+Plug ESP32 on one end of the breadboard.
+Connect ESP32 3.3V pin → breadboard red (power) rail.
+Connect ESP32 GND pin → breadboard blue (ground) rail.
+Power all components (HX711, LCD) from these rails.
+
+Load Cell → HX711 Amplifier
+
+A load cell has 4 wires — usually colored like this (but check yours, colors may vary slightly):
+Load Cell Wire	Connects To on HX711	Description
+Red	E+	Excitation + (power for load cell)
+Black	E-	Excitation - (ground for load cell)
+White	A-	Signal - (measurement wire)
+Green	A+	Signal + (measurement wire)
+
+make sure that the load cell is screwed in firmly so that 
+the flex caused by the actual load is only causing flex in the load cell only
+try to avoid stuff which will bend and will take in some part of the weight
+it makes the whole system unpredictable , 
+
+for more info you can see this video (https://youtu.be/sxzoAGf1kOo?si=cZrhtgwcfszVlAsm)
+HX711 with a Four Wire Load Cell and Arduino | Step by Step Guide.
+by ~Indrek
+
+
+HX711 → ESP32
+
+HX711 has two data pins (DT and SCK) and two power pins (VCC, GND).
+HX711 Pin	Connects To ESP32 Pin	Description
+VCC	3.3V (on ESP32)	Power for HX711
+GND	GND (on ESP32)	Ground
+DT	GPIO 19	Data signal (matches your code dataPin = 19)
+SCK	GPIO 18	Clock signal (matches your code clockPin = 18)
+
+I2C LCD (with backpack) → ESP32
+
+Your LCD uses the I²C protocol (only 4 wires needed).
+LCD Pin	Connects To ESP32 Pin	Description
+VCC	3.3V (or 5V)*	Power for LCD
+GND	GND (on ESP32)	Ground
+SDA	GPIO 21	I2C Data line
+SCL	GPIO 20	I2C Clock line
+
+
+also that i have used the serial monitor for log , so
+if you are having some issues then serial monitor can provide context to as what might be wrong 
